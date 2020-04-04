@@ -16,8 +16,8 @@ jobs:
 
     - name: Test
       run: |
+        ls /usr/bin/true /usr/bin/false /usr/bin/env
         cargo build
-        find . -name '*dodotenv*'
         cargo test
 
 # vim: set sw=2 ts=2 sts=2:
