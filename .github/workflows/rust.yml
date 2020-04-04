@@ -16,7 +16,6 @@ jobs:
 
     - name: Test
       run: |
-        ls /usr/bin/true /usr/bin/false /usr/bin/env
         cargo build
         cargo test
 

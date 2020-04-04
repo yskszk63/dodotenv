@@ -13,7 +13,7 @@ fn print_usage() {
 #[test]
 fn exit0() {
     let ok = Command::new("target/debug/dodotenv")
-        .args(&["/usr/bin/true"])
+        .args(&["/bin/true"])
         .env_clear()
         .status()
         .unwrap()
@@ -24,7 +24,7 @@ fn exit0() {
 #[test]
 fn exitne0() {
     let ok = Command::new("target/debug/dodotenv")
-        .args(&["/usr/bin/false"])
+        .args(&["/bin/false"])
         .env_clear()
         .status()
         .unwrap()
