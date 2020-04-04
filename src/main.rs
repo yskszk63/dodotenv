@@ -7,11 +7,11 @@
 //! dodotenv <program> [args]...
 //! ```
 
-use std::process::Command;
 use std::os::unix::process::CommandExt as _;
+use std::process::Command;
 
-use structopt::StructOpt;
 use structopt::clap::AppSettings::AllowLeadingHyphen;
+use structopt::StructOpt;
 
 /// Load .env and run program.
 #[derive(StructOpt, Debug)]
@@ -25,9 +25,13 @@ struct Opt {
 }
 
 fn main() -> anyhow::Result<()> {
-    let Opt {program, args} = Opt::from_args();
+    let Opt { program, args } = Opt::from_args();
     if let Err(e) = dotenv::dotenv() {
-        eprintln!("[{}] WARNING: Failed to load .env {}", env!("CARGO_PKG_NAME"), e);
+        eprintln!(
+            "[{}] WARNING: Failed to load .env {}",
+            env!("CARGO_PKG_NAME"),
+            e
+        );
     };
 
     let err = Command::new(program).args(args).exec();
