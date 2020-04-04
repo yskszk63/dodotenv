@@ -1,0 +1,16 @@
+[package]
+name = "dodotenv"
+version = "0.1.0"
+authors = ["yskszk63 <yskszk63@gmail.com>"]
+edition = "2018"
+description = "Load .env and run program."
+repository = "https://github.com/yskszk63/dodotenv/"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+dotenv = "0.15.0"
+anyhow = "1.0.28"
+structopt = "0.3.12"
+
+[profile.release]
+panic = "abort"
